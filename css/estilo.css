@@ -1,0 +1,186 @@
+body{
+    background-color: #000000;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+.navbar {
+    padding: 0;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-item {
+    position: relative;
+    height: 40rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(100deg, #000000, #00000020);
+    z-index: 1; 
+}
+
+.carousel-caption {
+    position: absolute;
+    z-index: 2; 
+}
+
+.card {
+    height: 20rem; 
+    overflow: hidden;
+    border-radius: 2rem;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 2rem; 
+}
+
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+
+.card-img-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+    z-index: 1;
+    border-radius: 2rem;
+}
+
+
+.card-img-overlay > * {
+    position: relative;
+    z-index: 2;
+}
+
+.card-img-overlay:hover {
+    transform: scale(1.1);
+}
+
+
+footer {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .bi {
+    color: #ffcc00; /* Color naranja para los iconos */
+}
+
+footer .bi:hover {
+    color: #ffaa00; /* Color de hover para los iconos */
+}
+
+.fondo-formulario{
+    background-image: url("../img/wallpapermw.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 70px; 
+    border-radius: 8px;
+    color: rgb(255, 255, 255); 
+}
+
+#registroForm{
+    background-color: rgba(255, 255, 255, 0.103);
+    backdrop-filter: blur(2px); 
+    max-width: 500px; 
+    color: #ffffff;
+    margin: 20px auto; 
+    border: 1px solid rgba(255, 255, 255, 0.363);
+    padding: 20px; 
+    border-radius: 8px;
+}
+
+.form-label {
+    color: #ffffff;
+}
+.progress-bar {
+    background-color: #ff0800;
+    text-align: center; 
+    font-weight: bold;
+}
+
+
+.about-hero {
+    background-image: url('/img/pngwing.com.png'); 
+    background-size: cover;
+    background-position: center;
+    padding: 200px ;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+.text-orange {
+    color: #ff6600; 
+}
+
+.container h2, .container h3 {
+    font-weight: bold;
+}
+
+
+.img-fluid.rounded {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 991px){
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+    }
+}
