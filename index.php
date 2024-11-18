@@ -1,3 +1,10 @@
+<?php
+session_start(); 
+
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,11 +62,17 @@
                     </ul>
                     
                     <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+                    <?php if ($usuario): ?>
+                        <span class="text-white me-3">Bienvenido, <?= htmlspecialchars($usuario); ?>!</span>
+                        <a href="logout.php" class="btn btn-danger">Cerrar sesión</a>
+                    <?php else: ?>
                         <a href="registrar.php" class="text-white">Registrarse</a>
                         <a href="#" class="text-white text-decoration-none px-3 py-1 rounded-4" 
-                           style="background-image:url(//www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blackops6/common/CerberusBtnAnim_6sec.gif)" 
-                           data-bs-toggle="modal" data-bs-target="#loginModal">Ingresar</a>
+                        style="background-image:url(//www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blackops6/common/CerberusBtnAnim_6sec.gif)" 
+                        data-bs-toggle="modal" data-bs-target="#loginModal">Ingresar</a>
+                    <?php endif; ?>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -74,24 +87,26 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <!-- Formulario que envía los datos a validar.php -->
+                        <form action="login.php" method="POST">
                             <div class="form-group">
-                                <label for="username">Nombre de usuario</label>
-                                <input type="text" class="form-control" id="username" placeholder="Nombre de usuario">
+                                <label for="usuario">Nombre de usuario</label>
+                                <input name="usuario" type="text" class="form-control" id="usuario" placeholder="Nombre de usuario" required>
                             </div>
                             <div class="form-group mt-3">
-                                <label for="password">Contraseña</label>
-                                <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                                <label for="contraseña">Contraseña</label>
+                                <input name="contraseña" type="password" class="form-control" id="contraseña" placeholder="Contraseña" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Iniciar sesión</button>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
