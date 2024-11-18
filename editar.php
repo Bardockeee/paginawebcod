@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = mysqli_query($con, $sql);
 
     if ($query) {
-        header("Location: panel.php");
+        // Redirigir al mismo archivo con el parámetro de éxito
+        header("Location: editar.php?id_registro=$id&actualizado=exito");
         exit();
     } else {
         echo "Error al actualizar el registro: " . mysqli_error($con);
@@ -49,6 +50,7 @@ if (isset($_GET['id_registro'])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -57,8 +59,22 @@ if (isset($_GET['id_registro'])) {
     <title>Editar Usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 </head>
 <body>
+
+<?php
+    // Mostrar el modal automáticamente si se actualizó correctamente
+    if (isset($_GET['actualizado']) && $_GET['actualizado'] === 'exito') {
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var actualizacionExitosaModal = new bootstrap.Modal(document.getElementById('actualizacionExitosaModal'));
+                actualizacionExitosaModal.show();
+            });
+        </script>";
+    }
+    ?>
+
     <div class="container-fluid fondo-formulario">
         <form id="registroForm" method="POST">
             <h2 class="text-white text-center">Actualizar Usuario</h2>
@@ -79,7 +95,12 @@ if (isset($_GET['id_registro'])) {
             </div>
             <div class="mb-3">
                 <label for="contrasena" class="form-label">Contraseña:</label>
-                <input type="password" class="form-control" id="contrasena" name="contraseña" value="<?= $row['contraseña']; ?>" required>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="contrasena" name="contraseña" value="<?= $row['contraseña']; ?>" required>
+                    <button class="btn btn-danger" type="button" id="togglePassword">
+                        <i class="bi bi-eye"></i> 
+                    </button>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
@@ -122,6 +143,51 @@ if (isset($_GET['id_registro'])) {
             </div>
         </form>
     </div>
+    <!-- Modal de éxito  -->
+    <div class="modal fade" id="actualizacionExitosaModal" tabindex="-1" aria-labelledby="actualizacionExitosaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+        <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="actualizacionExitosaLabel">¡Actualización Exitosa!</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Los datos se han actualizado correctamente.
+        </div>
+        <div class="modal-footer border-secondary">
+            <button type="button" class="btn btn-light" onclick="redirigirPanel()">Aceptar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+    <script>
+    function redirigirPanel() {
+        window.location.href = 'panel.php'; 
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+            document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('contrasena');
+            const passwordButton = document.getElementById('togglePassword');
+            const icon = passwordButton.querySelector('i');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash'); // Cambiar a icono de ojo tachado
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye'); // Cambiar a icono de ojo
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>    
+
 </body>
 </html>
 

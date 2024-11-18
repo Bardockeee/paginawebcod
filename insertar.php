@@ -11,13 +11,13 @@ $telefono = $_POST['telefono'];
 $genero =  $_POST['genero'];
 $roles = $_POST['roles'];
 
-
 $sql = "INSERT INTO formulario (nombre, apellido, usuario, contraseña, email, telefono, genero, roles) 
         VALUES ('$nombre', '$apellido', '$usuario', '$contraseña', '$email', '$telefono', '$genero', '$roles')";
 $query = mysqli_query($con, $sql);
 
 if ($query) {
-    header("Location: registrar.php");
+ 
+    header("Location: registrar.php?registro=exito");
 } else {
     echo "Error en la inserción: " . mysqli_error($con);
 }
