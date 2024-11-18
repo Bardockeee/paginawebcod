@@ -111,9 +111,9 @@
             </thead>
             <tbody>
                 <?php
-                include 'mostrar.php'; // Incluye la consulta de datos
+                include 'mostrar.php'; 
 
-                // Verifica si hay registros
+                
                 if (mysqli_num_rows($query) > 0):
                     while ($row = mysqli_fetch_array($query)): ?>
                         <tr>
@@ -121,7 +121,7 @@
                             <td><?= $row['nombre']; ?></td>
                             <td><?= $row['apellido']; ?></td>
                             <td><?= $row['usuario']; ?></td>
-                            <td>********</td> <!-- No mostrar la contraseña -->
+                            <td>********</td> 
                             <td><?= $row['email']; ?></td>
                             <td><?= $row['telefono']; ?></td>
                             <td><?= $row['genero']; ?></td>
@@ -149,7 +149,7 @@
     </div>
 
    
-    <!-- Modal de Confirmación -->
+    
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -162,7 +162,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <!-- Botón que redirige a eliminar.php -->
+                
                 <a href="eliminar.php?id_registro=<?= $row['id_registro']; ?>" id="confirmDeleteButton" class="btn btn-danger">Eliminar</a>
             </div>
         </div>
@@ -172,16 +172,16 @@
 
 
     <script>
-    // Capturar el evento cuando se abre el modal
+    
     const confirmDeleteModal = document.getElementById('confirmDeleteModal');
     confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
-        // Botón que abrió el modal
+        
         const button = event.relatedTarget;
 
-        // Extraer el ID del atributo data-id
+        
         const id = button.getAttribute('data-id');
 
-        // Actualizar el enlace de confirmación con el ID
+        
         const confirmDeleteButton = document.getElementById('confirmDeleteButton');
         confirmDeleteButton.href = `eliminar.php?id_registro=${id}`;
     });
