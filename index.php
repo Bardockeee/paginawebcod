@@ -98,6 +98,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                                 <input name="contraseña" type="password" class="form-control" id="contraseña" placeholder="Contraseña" required>
                             </div>
                             <div class="modal-footer">
+                                <a href="recuperar.php" target="_blank" class="btn btn-outline-secondary">Recuperar contraseña</a>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                             </div>
@@ -118,8 +119,8 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <div class="carousel-item active">
                     <img src="img\bo6-fondo.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <h5></h5>
+                        <p></p>
                     </div>
                 </div>
                 <div class="carousel-item">
