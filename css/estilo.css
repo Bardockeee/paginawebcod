@@ -151,7 +151,7 @@ footer .bi:hover {
 
 
 .about-hero {
-    background-image: url("/img/call-of-duty-fondo-registro.jpg");
+    background-image: url("../img/call-of-duty-fondo-registro.jpg");
     background-size: cover;
     background-position: center;
     padding: 200px;
