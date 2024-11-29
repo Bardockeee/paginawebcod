@@ -65,7 +65,7 @@
         </div>
     </nav>
     
-    <!-- Modal de autenticación -->
+ 
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -93,14 +93,13 @@
         </div>
     </div>
 
-    <!-- Sección Hero -->
     <div class="about-hero text-center ">
         <h1>¿Quiénes Somos?</h1>
     </div>
 
-    <!-- Contenido Principal -->
+
     <div class="container my-5 text-white">
-        <!-- Sección de Misión -->
+      
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
                 <h2 class="text-orange">Nuestra Misión</h2>
@@ -115,7 +114,7 @@
             </div>
         </div>
 
-        <!-- Sección de Experiencias y Valores -->
+      
         <div class="row">
             <div class="col-md-6 mb-4">
                 <h3 class="text-orange">Experiencias Extraordinarias</h3>

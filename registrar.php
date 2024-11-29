@@ -187,7 +187,7 @@ if (isset($_GET['registro']) && $_GET['registro'] === 'exito') {
             <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
-        <!-- Modal de éxito -->
+        
        
         <div class="modal fade" id="registroExitosoModal" tabindex="-1" aria-labelledby="registroExitosoLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -270,11 +270,11 @@ if (isset($_GET['registro']) && $_GET['registro'] === 'exito') {
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
                 icon.classList.remove('bi-eye');
-                icon.classList.add('bi-eye-slash'); // Cambiar a icono de ojo tachado
+                icon.classList.add('bi-eye-slash'); 
             } else {
                 passwordField.type = 'password';
                 icon.classList.remove('bi-eye-slash');
-                icon.classList.add('bi-eye'); // Cambiar a icono de ojo
+                icon.classList.add('bi-eye'); 
             }
         });
     </script>

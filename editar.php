@@ -2,9 +2,9 @@
 include("conexion.php");
 $con = conectar();
 
-// Actualizar los datos si se envía el formulario
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Recuperar datos del formulario
+   
     $id = $_POST['id_registro'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $genero = $_POST['genero'];
     $roles = $_POST['roles'];
 
-    // Consulta de actualización
+
     $sql = "UPDATE formulario 
             SET nombre='$nombre', apellido='$apellido', usuario='$usuario', 
             contraseña='$contraseña', email='$email', telefono='$telefono', 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = mysqli_query($con, $sql);
 
     if ($query) {
-        // Redirigir al mismo archivo con el parámetro de éxito
+       
         header("Location: editar.php?id_registro=$id&actualizado=exito");
         exit();
     } else {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Recuperar datos del usuario a editar
+
 if (isset($_GET['id_registro'])) {
     $id = $_GET['id_registro'];
     $sql = "SELECT * FROM formulario WHERE id_registro='$id'";
@@ -64,7 +64,7 @@ if (isset($_GET['id_registro'])) {
 <body>
 
 <?php
-    // Mostrar el modal automáticamente si se actualizó correctamente
+ 
     if (isset($_GET['actualizado']) && $_GET['actualizado'] === 'exito') {
         echo "<script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -78,7 +78,7 @@ if (isset($_GET['id_registro'])) {
     <div class="container-fluid fondo-formulario">
         <form id="registroForm" method="POST">
             <h2 class="text-white text-center">Actualizar Usuario</h2>
-            <!-- Campo oculto para enviar el ID -->
+            
             <input type="hidden" name="id_registro" value="<?= $row['id_registro']; ?>">
 
             <div class="mb-3">

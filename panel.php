@@ -78,7 +78,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         </div>
     </nav>
         
-        <!-- Modal de autenticación -->
+        
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -87,7 +87,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Formulario que envía los datos a validar.php -->
+                   
                         <form action="login.php" method="POST">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
