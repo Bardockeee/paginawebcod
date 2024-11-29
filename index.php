@@ -98,7 +98,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                                 <input name="contraseña" type="password" class="form-control" id="contraseña" placeholder="Contraseña" required>
                             </div>
                             <div class="modal-footer">
-                                <a href="recuperar.php" target="_blank" class="btn btn-outline-secondary">Recuperar contraseña</a>
+                                <a href="recuperar_contra.php" target="_blank" class="btn btn-outline-secondary">Recuperar contraseña</a>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                             </div>

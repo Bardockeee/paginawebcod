@@ -151,10 +151,10 @@ footer .bi:hover {
 
 
 .about-hero {
-    background-image: url('/img/pngwing.com.png'); 
+    background-image: url("/img/call-of-duty-fondo-registro.jpg");
     background-size: cover;
     background-position: center;
-    padding: 200px ;
+    padding: 200px;
 }
 
 .about-hero h1 {

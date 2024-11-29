@@ -111,7 +111,7 @@
                 
             </div>
             <div class="col-md-6">
-                <img src="/img/Pred.jpg" alt="Nuestra Misión" class="img-fluid rounded">
+                <img src="img\Pred.jpg" alt="Nuestra Misión" class="img-fluid rounded">
             </div>
         </div>
 

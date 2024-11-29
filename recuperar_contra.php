@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Recuperar Contraseña</h1>
-    <form action="procesar_recuperar.php" method="POST">
+    <form action="recuperar.php" method="POST">
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" required>
         <button type="submit">Recuperar Contraseña</button>
